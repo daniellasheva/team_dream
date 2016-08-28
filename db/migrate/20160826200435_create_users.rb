@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :gender
       t.date :date_of_birth
       t.string :password_digest
+      t.string :favorite_animal
 
       t.timestamps
     end
