@@ -1,16 +1,11 @@
 class DreamsController < ApplicationController
 
-  before_action :set_dream, only: :show
+  before_action :set_dream, only: [:show, :edit, :update]
+  before_action :check_if_logged_in, only: [:new, :edit]
 
   def new
     @dream=Dream.new
     @number_of_elements = 0
-  end
-
-  def add_element_form
-    byebug
-    @number_of_elements = params[]
-    render :new
   end
 
   def show
@@ -19,10 +14,8 @@ class DreamsController < ApplicationController
 
   def create
     #byebug
-    user_id = 1
-
     @dream = Dream.new(dream_params)
-    @dream.user_id = user_id
+    @dream.user = current_user
 
     if @dream.save
       redirect_to dream_path(@dream)
@@ -30,6 +23,17 @@ class DreamsController < ApplicationController
       render :new
     end
     #create thing
+  end
+
+  def edit
+  end
+
+  def update
+    if @dream.update(dream_params)
+      redirect_to dream_path(@dream)
+    else
+      render :edit
+    end
   end
 
   private
@@ -40,6 +44,12 @@ class DreamsController < ApplicationController
 
   def dream_params
     params.require(:dream).permit(:title, :description, :date, element_ids:[])
+  end
+
+  def check_if_logged_in
+    if !logged_in?
+      redirect_to root_path
+    end
   end
 
 

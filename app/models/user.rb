@@ -3,6 +3,8 @@ class User < ApplicationRecord
   #has_many :
   has_many :elements, through: :dreams
 
+  has_secure_password
+
   def sorted_dreams
     self.dreams.sort_by do |dream|
       dream.date

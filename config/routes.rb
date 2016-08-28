@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  post '/dreams/element_quantities', to: 'dreams#add_element_form', as: 'element_quantity_path'
 
+  #get '/sessions/new', to: 'sessions#new', as: 'login'
+
+  delete 'session', to: 'sessions#destroy'
+  #get '/logout', to: "sessions#destroy", as: 'logout'
+  resources :sessions
   resources :elements
   resources :dreams
   resources :users

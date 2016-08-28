@@ -12,9 +12,9 @@
   Element.create(name: Faker::Hipster.word, interpretation: Faker::Hipster.sentence)
 end
 
-andrew = User.create(name: "Andrew", username: "ajklein", date_of_birth: Date.new(1991, 6, 15), gender: "male", favorite_animal: Faker::Pokemon.name)
+andrew = User.create(name: "Andrew", username: "ajklein", password: "baseball", date_of_birth: Date.new(1991, 6, 15), gender: "male", favorite_animal: Faker::Pokemon.name)
 
-daniella= User.create(name: "Daniella", username: "dpenn", date_of_birth: Date.new(1993, 4, 21), gender: "female", favorite_animal: "Giraffe")
+daniella= User.create(name: "Daniella", username: "dpenn", password: "puppy", date_of_birth: Date.new(1993, 4, 21), gender: "female", favorite_animal: "Giraffe")
 
 
 for i in 0..4 do

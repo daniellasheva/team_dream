@@ -12,6 +12,7 @@
 
     <nav> <p>
       <%=link_to "TeamDream!", root_path %></p>
+      <%= link_to "Log Out", session_path, method: 'delete' %>
     </nav>
     <%= yield %>
   </body>
