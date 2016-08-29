@@ -1,0 +1,10 @@
+<h1><%= @element.name %></h1>
+<p>
+  <%= @element.interpretation %>
+</p>
+
+<h2>All dreams with this element:</h2>
+
+<ul>
+  <%= render partial: 'dream', collection: @element.sorted_dreams, as: 'dream' %>
+</ul>

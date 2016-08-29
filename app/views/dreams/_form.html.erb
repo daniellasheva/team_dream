@@ -1,0 +1,37 @@
+<%= form_for(@dream) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %><br>
+<%=f.label :description %>
+<%=f.text_area :description %><br>
+<%=f.label :date %>
+<%= f.date_field :date %><br><br>
+
+<%= f.label :elements %><br>
+
+ <%= f.collection_check_boxes :element_ids, Element.all, :id, :name %>
+<!--<%= f.collection_select :element_ids, Element.all, :id, :name, multiple: true, name: 'element_ids[]' %>
+<%= f.collection_select :element_ids, Element.all, :id, :name, multiple: true, name: 'element_ids[]' %>
+<%= f.collection_select :element_ids, Element.all, :id, :name, multiple: true, name: 'element_ids[]' %> -->
+
+<!--
+<%=f.select :element_ids, options_from_collection_for_select(Element.all, :id, :name, {multiple: true, size: 3})  %>
+<%=f.select :element_ids, options_from_collection_for_select(Element.all, :id, :name, {multiple: true, size: 3})  %> -->
+<!-- <%= f.collection_select :element_ids, Element.all, :id, :name, multiple: true, size: 5 %>
+
+<%= f.collection_select :element_ids, Element.all, :id, :name, multiple: true %>
+
+<%= f.collection_select :element_ids, Element.all, :id, :name, multiple: true %> -->
+
+<!--
+<%= f.collection_select :element_ids, Element.all, :id, :name %><br>
+<%= f.collection_select :element_ids, Element.all, :id, :name %><br>
+<%= f.collection_select :element_ids, Element.all, :id, :name %><br>
+<%= f.collection_select :element_ids, Element.all, :id, :name %><br>
+<%= f.collection_select :element_ids, Element.all, :id, :name %><br> -->
+
+
+<br>
+
+
+  <%=f.submit %>
+<% end %>

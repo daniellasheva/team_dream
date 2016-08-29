@@ -1,0 +1,9 @@
+<p><%= link_to dream.title, dream_path(dream) %>, on <%= dream.clean_date %></p>
+
+<ul>
+<% dream.elements.each do |element| %>
+  <li>
+    <%= link_to element.name, element_path(element) %>
+  </li>
+  <% end %>
+</ul>

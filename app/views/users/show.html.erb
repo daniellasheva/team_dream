@@ -1,0 +1,8 @@
+<h1><%=@user.name%>'s Dream Page!</h1>
+<%= button_to "Create Dream!", new_dream_path, method: 'get' %>
+
+<h1>Date of Birth:</h1> <%= @user.clean_date_of_birth %>
+<h2>Favorite Animal, FYI: <%= @user.favorite_animal %></h2>
+<h2><%=@user.name%>'s Dreams: </h2>
+
+<%= render partial: 'dream', collection: @user.sorted_dreams, as: :dream %>
