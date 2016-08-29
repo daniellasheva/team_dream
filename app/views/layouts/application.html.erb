@@ -26,6 +26,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Dream Feed", dreams_path, class: "active" %> </li>
+        <li><%= link_to "Elements", elements_path %></li>
         <% if logged_in? %>
         <li><%= link_to "Log Out", session_path, method: 'delete' %></li>
         <li><%= link_to "#{current_user.name}'s Page", user_path(current_user) %></li>

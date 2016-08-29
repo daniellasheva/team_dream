@@ -41,11 +41,11 @@ Element.create(name: "Zip Line", interpretation: "To dream that you are zip lini
 andrew = User.create(name: "Andrew", username: "ajklein", password: "baseball", date_of_birth: Date.new(1991, 6, 15), gender: "male", favorite_animal: Faker::Pokemon.name)
 daniella= User.create(name: "Daniella", username: "dpenn", password: "puppy", date_of_birth: Date.new(1993, 4, 21), gender: "female", favorite_animal: "Giraffe")
 
-for i in 0..4 do
+for i in 0..10 do
   andrew.dreams.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, date: Faker::Date.between(1.year.ago, Date.today), dream_type: ["dream","nightmare"].sample)
   andrew.dreams[i].element_ids = (1..Element.all.size).to_a.sample(rand(6))
 end
-for i in 0..4 do
+for i in 0..10 do
   daniella.dreams.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, date: Faker::Date.between(1.year.ago, Date.today), dream_type: ["dream","nightmare"].sample)
   daniella.dreams[i].element_ids = (1..Element.all.size).to_a.sample(rand(6))
 end
