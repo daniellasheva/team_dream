@@ -8,12 +8,14 @@ class DreamsController < ApplicationController
     @number_of_elements = 0
   end
 
-  def show
+  def index
+    @dreams=Dream.sorted_dreams
+  end
 
+  def show
   end
 
   def create
-    #byebug
     @dream = Dream.new(dream_params)
     @dream.user = current_user
 
@@ -26,6 +28,9 @@ class DreamsController < ApplicationController
   end
 
   def edit
+    if !correct_user?(@dream)
+      redirect_to dream_path(@dream)
+    end
   end
 
   def update
@@ -43,7 +48,7 @@ class DreamsController < ApplicationController
   end
 
   def dream_params
-    params.require(:dream).permit(:title, :description, :date, element_ids:[])
+    params.require(:dream).permit(:title, :description, :date, :dream_type, element_ids:[])
   end
 
   def check_if_logged_in

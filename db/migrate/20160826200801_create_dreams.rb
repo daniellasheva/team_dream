@@ -4,6 +4,7 @@ class CreateDreams < ActiveRecord::Migration[5.0]
       t.string :title
       t.date :date
       t.text :description
+      t.string :dream_type
       t.belongs_to :user, foreign_key: true
 
       t.timestamps

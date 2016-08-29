@@ -1,5 +1,8 @@
 <h1><%=@user.name%>'s Dream Page!</h1>
+
+<% if correct_user?(@user) %>
 <%= button_to "Create Dream!", new_dream_path, method: 'get' %>
+<% end %>
 
 <h1>Date of Birth:</h1> <%= @user.clean_date_of_birth %>
 <h2>Favorite Animal, FYI: <%= @user.favorite_animal %></h2>

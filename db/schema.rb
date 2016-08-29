@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160826201846) do
     t.string   "title"
     t.date     "date"
     t.text     "description"
+    t.string   "dream_type"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

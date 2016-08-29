@@ -10,10 +10,22 @@
 
   <body>
 
-    <nav> <p>
-      <%=link_to "TeamDream!", root_path %></p>
-      <%= link_to "Log Out", session_path, method: 'delete' %>
+    <nav>
+      <%=link_to "TeamDream!", root_path %> |
+      <%= link_to "Dream Feed", dreams_path %> |
+      <%= link_to "Elements", elements_path %> |
+      <% if logged_in? %>
+      <%= link_to "Log Out", session_path, method: 'delete' %> |
+      <%= link_to current_user.name, user_path(current_user) %>
+      <% else %>
+      <%=link_to "Log In", root_path %> |
+      <%= link_to "Sign Up", new_user_path%>
+      <% end %>
+
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

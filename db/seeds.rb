@@ -18,12 +18,12 @@ daniella= User.create(name: "Daniella", username: "dpenn", password: "puppy", da
 
 
 for i in 0..4 do
-  andrew.dreams.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, date: Faker::Date.between(1.year.ago, Date.today))
+  andrew.dreams.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, date: Faker::Date.between(1.year.ago, Date.today), dream_type: ["dream","nightmare"].sample)
   andrew.dreams[i].element_ids = (1..40).to_a.sample(3)
 end
 
 for i in 0..4 do
-  daniella.dreams.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, date: Faker::Date.between(1.year.ago, Date.today))
+  daniella.dreams.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, date: Faker::Date.between(1.year.ago, Date.today), dream_type: ["dream","nightmare"].sample)
   daniella.dreams[i].element_ids = (1..40).to_a.sample(3)
 end
 #

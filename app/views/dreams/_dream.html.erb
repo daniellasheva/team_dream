@@ -1,0 +1,9 @@
+<p><%= link_to dream.title, dream_path(dream) %>, by <%=link_to dream.user.name, user_path(dream.user) %> on <%= dream.clean_date %> <strong><%= "N" if dream.dream_type=="nightmare" %></strong></p>
+
+<ul>
+<% dream.elements.each do |element| %>
+  <li>
+    <%= link_to element.name, element_path(element) %>
+  </li>
+  <% end %>
+</ul>

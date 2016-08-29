@@ -1,0 +1,20 @@
+<h1>Sign Up!</h1>
+<strong><%= @user.errors.full_messages.first if @user.errors %></strong>
+
+<%= form_for(@user) do |f| %>
+<%=f.label :name %>
+<%=f.text_field :name %> <br>
+<%=f.label :username %>
+<%=f.text_field :username %> <br>
+<%=f.label :password %>
+<%=f.password_field :password %> <br>
+<%=f.label :password_confirmation %>
+<%=f.password_field :password_confirmation %> <br>
+<%=f.label :date_of_birth %>
+<%=f.date_field :date_of_birth %> <br>
+<%=f.label :gender%>
+<%=f.select :gender, %w(male female other) %> <br>
+<%=f.label :favorite_animal%>
+<%=f.text_field :favorite_animal %><br>
+<%=f.submit %>
+<% end %>
