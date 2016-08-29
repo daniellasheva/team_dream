@@ -1,6 +1,6 @@
 class DreamsController < ApplicationController
 
-  before_action :set_dream, only: [:show, :edit, :update]
+  before_action :set_dream, only: [:show, :edit, :update, :destroy]
   before_action :check_if_logged_in, only: [:new, :edit]
 
   def new
@@ -24,7 +24,6 @@ class DreamsController < ApplicationController
     else
       render :new
     end
-    #create thing
   end
 
   def edit
@@ -39,6 +38,11 @@ class DreamsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    Dream.destroy(@dream)
+    redirect_to user_path(current_user)
   end
 
   private

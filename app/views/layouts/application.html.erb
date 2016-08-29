@@ -10,19 +10,35 @@
 
   <body>
 
-    <nav>
-      <%=link_to "TeamDream!", root_path %> |
-      <%= link_to "Dream Feed", dreams_path %> |
-      <%= link_to "Elements", elements_path %> |
-      <% if logged_in? %>
-      <%= link_to "Log Out", session_path, method: 'delete' %> |
-      <%= link_to current_user.name, user_path(current_user) %>
-      <% else %>
-      <%=link_to "Log In", root_path %> |
-      <%= link_to "Sign Up", new_user_path%>
-      <% end %>
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%=link_to "TeamDream!", root_path, class: "navbar-brand" %>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Dream Feed", dreams_path, class: "active" %> </li>
+        <% if logged_in? %>
+        <li><%= link_to "Log Out", session_path, method: 'delete' %></li>
+        <li><%= link_to "#{current_user.name}'s Page", user_path(current_user) %></li>
+        <% else %>
+        <li><%=link_to "Log In", root_path %> </li>
+        <li><%=link_to "Log In", root_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-    </nav>
+
     <div class="container">
       <%= yield %>
     </div>

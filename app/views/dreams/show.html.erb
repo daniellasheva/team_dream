@@ -15,4 +15,8 @@
 
 <%if correct_user?(@dream) %>
 <%= button_to "Edit This Dream!", edit_dream_path(@dream), method: 'get' %>
+<% end %> <br>
+
+<%if correct_user?(@dream) %>
+<%= button_to "Delete This Dream!", dream_path(@dream), method: 'delete' %>
 <% end %>

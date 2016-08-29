@@ -1,11 +1,15 @@
 <h1><%=@user.name%>'s Dream Page!</h1>
+<h4>(My favorite animal is a <%=@user.favorite_animal%>)</h4><br>
 
 <% if correct_user?(@user) %>
-<%= button_to "Create Dream!", new_dream_path, method: 'get' %>
+<%= button_to "Create Dream!", new_dream_path, method: 'get', class: "btn btn-info btn-lg active"%>
 <% end %>
 
-<h1>Date of Birth:</h1> <%= @user.clean_date_of_birth %>
-<h2>Favorite Animal, FYI: <%= @user.favorite_animal %></h2>
-<h2><%=@user.name%>'s Dreams: </h2>
+<% if current_user==@user %>
+<h2>My Dreams: </h2>
+<% else %>
+<h2><%= @user.name%>'s Dreams:</h2><br>
+<% end %>
+
 
 <%= render partial: 'dream', collection: @user.sorted_dreams, as: :dream %>

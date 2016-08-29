@@ -1,4 +1,4 @@
-<p><%= link_to dream.title, dream_path(dream) %>, on <%= dream.clean_date %> <strong><%= "N" if dream.dream_type=="nightmare" %></strong> </p>
+<h3><%= link_to dream.title, dream_path(dream) %>, on <%= dream.clean_date %> <strong><%= "| N" if dream.dream_type=="nightmare" %></strong> </h3>
 
 <ul>
 <% dream.elements.each do |element| %>
