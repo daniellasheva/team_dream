@@ -9,8 +9,9 @@
 <%= f.select :dream_type, %w(dream nightmare) %> <br><br>
 <%= f.label :elements %><br>
 
-<%= f.collection_check_boxes :element_ids, Element.all, :id, :name %>
-
+<%= f.collection_check_boxes :element_ids, Element.all, :id, :name do |b| %>
+  <%= b.check_box + " " + b.label + "<br>".html_safe %>
+<% end %>
 <br>
 
 
